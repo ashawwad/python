@@ -14,6 +14,8 @@ class test_search_words(unittest.TestCase):
 
 	def test_find_character_in_file(self):
 		self.assertTrue(self.search_class.find_character('B'))
+		self.assertTrue(self.search_class.find_character('K'))
+		self.assertFalse(self.search_class.find_character('i'))
 		
 if __name__ == '__main__':
 	unittest.main()
