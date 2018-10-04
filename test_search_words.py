@@ -19,6 +19,8 @@ class test_search_words(unittest.TestCase):
 
 	def test_find_word_in_any_directions(self):
 		self.assertTrue(self.search_class.find_word_any_direction('BONES'))
+		self.assertTrue(self.search_class.find_word_any_direction('SULU'))
+		self.assertFalse(self.search_class.find_word_any_direction('PYTHON'))
 		
 if __name__ == '__main__':
 	unittest.main()
