@@ -28,3 +28,6 @@ class search_words:
 				if character == grid_character:
 					return True
 		return False
+
+	def find_word_any_direction(self, word):
+		return False
