@@ -21,6 +21,9 @@ class test_search_words(unittest.TestCase):
 		self.assertTrue(self.search_class.find_word_any_direction('BONES'))
 		self.assertTrue(self.search_class.find_word_any_direction('SULU'))
 		self.assertFalse(self.search_class.find_word_any_direction('PYTHON'))
+
+	def test_find_word_location(self):
+		self.assertEqual('(6, 0),(7, 0),(8, 0),(9, 0),(10, 0)', self.search_class.find_word_location('BONES'))
 		
 if __name__ == '__main__':
 	unittest.main()
