@@ -24,6 +24,9 @@ class test_search_words(unittest.TestCase):
 
 	def test_find_word_location(self):
 		self.assertEqual('(6, 0),(7, 0),(8, 0),(9, 0),(10, 0)', self.search_class.find_word_location('BONES'))
-		
+		self.assertEqual('(5, 0),(5, 1),(5, 2),(5, 3),(5, 4),(5, 5)', self.search_class.find_word_location('SCOTTY'))
+		self.assertEqual('(0, 4),(1, 3),(2, 2),(3, 1),(4, 0)', self.search_class.find_word_location('UHURA'))
+		self.assertEqual(None, self.search_class.find_word_location('ASHRAF'))
+
 if __name__ == '__main__':
 	unittest.main()
