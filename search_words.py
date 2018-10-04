@@ -29,41 +29,33 @@ class search_words:
 					return True
 		return False
 
-	def search_word(self, word, characters_grid, y,z):
+	def get_8_directions(self, word, characters_grid, y,z):
 		char_range = range(len(word))
 		grid_dimension = len(characters_grid)
 		points_in_8directions = [	
-						[(y-i,z) for i in char_range if y-i>= 0],#vertical up
-						[(y+i,z) for i in char_range if y+i <= grid_dimension-1],#vertical down
-						[(y,z-i) for i in char_range if z-i >= 0], #horizontal right
-						[(y,z+i) for i in char_range if z+i <= grid_dimension-1],#horizontal left
-						[(y-i,z-i) for i in char_range if y-i>= 0 and z-i >= 0],#diagonal up left
-						[(y-i,z+i) for i in char_range if y-i >= 0 and z+i <= grid_dimension-1],#diagonal up right
-						[(y+i,z-i) for i in char_range if y+i <= grid_dimension-1 and z-i >= 0],#diagonal down left
-						[(y+i,z+i) for i in char_range if y+i <= grid_dimension-1 and z+i <= grid_dimension-1]#diagonal down right
+						list(map(lambda i: (y-i,z), filter(lambda i: y-i >= 0, char_range))),
+						list(map(lambda i: (y+i,z), filter(lambda i: y+i <= grid_dimension-1, char_range))),
+						list(map(lambda i: (y,z-i), filter(lambda i: z-i >= 0, char_range))),
+						list(map(lambda i: (y,z+i), filter(lambda i: z+i <= grid_dimension-1, char_range))),
+						list(map(lambda i: (y-i,z-i), filter(lambda i: y-i>= 0 and z-i >= 0, char_range))),
+						list(map(lambda i: (y-i,z+i), filter(lambda i: y-i >= 0 and z+i <= grid_dimension-1, char_range))),
+						list(map(lambda i: (y+i,z-i), filter(lambda i: y+i <= grid_dimension-1 and z-i >= 0, char_range))),
+						list(map(lambda i: (y+i,z+i), filter(lambda i: y+i <= grid_dimension-1 and z+i <= grid_dimension-1, char_range)))
 					 ]
 
-		for direction in points_in_8directions:
+		return points_in_8directions
+
+	def search_word(self, word, characters_grid, y,z):	
+		all_directions = self.get_8_directions(word, characters_grid, y,z)
+		for direction in all_directions:
 			if word == ''.join([characters_grid[row][col] for row,col in direction]):
 				return True
 
 		return False
 
 	def search_word_location(self, word, characters_grid, y,z):
-		char_range = range(len(word))
-		grid_dimension = len(characters_grid)
-		points_in_8directions = [	
-						[(y-i,z) for i in char_range if y-i>= 0],#vertical up
-						[(y+i,z) for i in char_range if y+i <= grid_dimension-1],#vertical down
-						[(y,z-i) for i in char_range if z-i >= 0], #horizontal right
-						[(y,z+i) for i in char_range if z+i <= grid_dimension-1],#horizontal left
-						[(y-i,z-i) for i in char_range if y-i>= 0 and z-i >= 0],#diagonal up left
-						[(y-i,z+i) for i in char_range if y-i >= 0 and z+i <= grid_dimension-1],#diagonal up right
-						[(y+i,z-i) for i in char_range if y+i <= grid_dimension-1 and z-i >= 0],#diagonal down left
-						[(y+i,z+i) for i in char_range if y+i <= grid_dimension-1 and z+i <= grid_dimension-1]#diagonal down right
-					 ]
-
-		for direction in points_in_8directions:
+		all_directions = self.get_8_directions(word, characters_grid, y,z)
+		for direction in all_directions:
 			if word == ''.join([characters_grid[row][col] for row, col in direction]):
 				return [(row, col) for col, row in direction]
 
