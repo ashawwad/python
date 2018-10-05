@@ -7,7 +7,7 @@ Dev Environment: Mac 10
 Installation:
 
 Python 2.7: Use homebrew to install python 
-	$ brew install python
+$ brew install python
 
 Problem:
 Search words in a grid loaded from a csv file (data.csv) and print the location of each word.
@@ -22,4 +22,10 @@ The code written using TDD approach (wite test, fail test, write code, pass test
 - Navigate the grid from the starting location into the 8 directions
 - Compare the 8 words with the searched word, if matched return the location of the characters 
 
+Running:
 
+- Running tests:
+$ python -m unittest -v test_search_words
+
+- Printing the words with location:
+$ python search_words.py
