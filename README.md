@@ -2,7 +2,7 @@
 https://github.com/PillarTechnology/kata-word-search
 
 Language: **python 2.7.15**
-Dev Environment: **Mac 10**
+Dev Environment: **MacOS 10**
 
 ## Installation
 
