@@ -1,18 +1,19 @@
-Code Kata
+# Code Kata
 https://github.com/PillarTechnology/kata-word-search
 
-Language: python 2.7.15
-Dev Environment: Mac 10
+Language: **python 2.7.15**
+Dev Environment: **Mac 10**
 
-Installation:
+## Installation
 
-Python 2.7: Use homebrew to install python 
+Python 2.7: Use [homebrew](http://mxcl.github.com/homebrew/) to install python 
+```
 $ brew install python
-
-Problem:
+```
+## Excercise
 Search words in a grid loaded from a csv file (data.csv) and print the location of each word.
 
-Solution Description:
+## Solution Description
 The code written using TDD approach (wite test, fail test, write code, pass test, repeat, refactor)
 
 - Load the data from the csv file
@@ -22,10 +23,13 @@ The code written using TDD approach (wite test, fail test, write code, pass test
 - Navigate the grid from the starting location into the 8 directions
 - Compare the 8 words with the searched word, if matched return the location of the characters 
 
-Running:
+## Running
 
 - Running tests:
+```
 $ python -m unittest -v test_search_words
-
+```
 - Printing the words with location:
+```
 $ python search_words.py
+```
